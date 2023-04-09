@@ -3,6 +3,8 @@
 
 #include "../CPP_RayTracer/Tuple.cpp"
 #include "../CPP_RayTracer/Vector3.cpp"
+#include "../CPP_RayTracer/Colour.cpp"
+#include "../CPP_RayTracer/Canvas.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace CPPRayTracerTEST
@@ -85,6 +87,44 @@ namespace CPPRayTracerTEST
 			a = a.Cross(b);
 			Tuple c = a.VectorToTuple();
 			return c.IsEqual(Tuple(-1, 2, -1, 0)) ? 0 : Assert::Fail();
+		}
+
+		TEST_METHOD(ColourOperations)
+		{
+			Colour a = Colour{ 1.f, 1.f, 1.f, 1.f };
+			Colour b = Colour{ 1.f, 1.f, 1.f, 0.f };
+			Colour c = b + a;
+			return c.IsEqual(Colour(2.f, 2.f, 2.f, 1.f)) ? 0 : Assert::Fail();
+		}
+
+		TEST_METHOD(CanvasTest)
+		{
+			Canvas c{ 10, 20 };
+			Assert::AreEqual(c.GetWidth(), 10);
+			Assert::AreEqual(c.GetHeight(), 20);
+			
+			for (int i = 0; i < c.GetWidth(); i++)
+			{
+				for (int j = 0; j < c.GetHeight(); j++)
+				{
+					Colour t = c.GetPixelAt(i, j);
+					Assert::AreEqual(t.r(), 0.0f);
+					Assert::AreEqual(t.g(), 0.0f);
+					Assert::AreEqual(t.b(), 0.0f);
+				}
+			}
+		}
+
+		TEST_METHOD(WritethePixel)
+		{
+			Canvas c{ 10, 20 };
+			Colour red{ 1.0f, 0.0f, 0.0f };
+			c.WritePixel(2, 3, red);
+			
+			Colour t = c.GetPixelAt(2, 3);
+			Assert::AreEqual(t.r(), 1.0f);
+			Assert::AreEqual(t.g(), 0.0f);
+			Assert::AreEqual(t.b(), 0.0f);
 		}
 	};
 }

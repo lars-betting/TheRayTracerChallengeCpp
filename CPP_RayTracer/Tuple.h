@@ -14,16 +14,16 @@ public:
 	virtual bool IsEqual(const Tuple& otherTuple);
 	virtual float Dot(const Tuple& otherTuple);
 
-	Tuple operator+(const Tuple& otherTuple); // ADDITION
-	Tuple operator-(const Tuple& otherTuple); // SUBTRACTION
-	Tuple operator-();						  // Negation
-	Tuple operator*(float scalar);		      // Scalar multiplication 
-	Tuple operator/(float scalar);			  // Scalar division
+	virtual Tuple operator+(const Tuple& otherTuple) const; // ADDITION
+	virtual Tuple operator-(const Tuple& otherTuple) const; // SUBTRACTION
+	virtual Tuple operator-() const;						  // Negation
+	virtual Tuple operator*(float scalar) const ;		      // Scalar multiplication 
+	virtual Tuple operator/(float scalar) const;			  // Scalar division
 
-	virtual float x();
-	virtual float y();
-	virtual float z();
-	virtual float w();
+	virtual float x() const;
+	virtual float y() const;
+	virtual float z() const;
+	virtual float w() const;
 
 private:
 
@@ -31,7 +31,7 @@ private:
 	float _y{};
 	float _z{};
 	float _w{};
-
+	
 protected:
 	float EPSILON{ 0.00001f };
 

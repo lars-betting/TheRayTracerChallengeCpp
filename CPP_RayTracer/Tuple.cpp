@@ -5,47 +5,49 @@ inline Tuple::Tuple(float X, float Y, float Z, float W)
 {
 }
 
-Tuple Tuple::operator+(const Tuple& otherTuple)
+Tuple Tuple::operator+(const Tuple& otherTuple) const
 {
 	return { _x + otherTuple._x, _y + otherTuple._y, _z + otherTuple._z, _w + otherTuple._w };
 }
 
-Tuple Tuple::operator-(const Tuple& otherTuple)
+Tuple Tuple::operator-(const Tuple& otherTuple) const
 {
 	return { _x - otherTuple._x, _y - otherTuple._y, _z - otherTuple._z, _w - otherTuple._w };
 }
 
-Tuple Tuple::operator-()
+
+
+Tuple Tuple::operator-() const
 {
 	return { -(_x), -(_y), -(_z), -(_w) };
 }
 
-Tuple Tuple::operator*(float scalar)
+Tuple Tuple::operator*(float scalar) const
 {
 	return { _x * scalar, _y * scalar, _z * scalar, _w * scalar };
 }
 
-Tuple Tuple::operator/(float scalar)
+Tuple Tuple::operator/(float scalar) const
 {
 	return { _x / scalar, _y / scalar, _z / scalar, _w / scalar };
 }
 
-float Tuple::x()
+float Tuple::x() const
 {
 	return _x;
 }
 
-float Tuple::y()
+float Tuple::y() const
 {
 	return _y;
 }
 
-float Tuple::z()
+float Tuple::z() const
 {
 	return _z;
 }
 
-float Tuple::w()
+float Tuple::w() const
 {
 	return _w;
 }

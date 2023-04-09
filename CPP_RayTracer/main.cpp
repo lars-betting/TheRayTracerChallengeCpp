@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Vector3.h"
+#include "Canvas.h"
 #include "Tuple.h"
 
 struct Projectile
@@ -34,6 +35,12 @@ int main()
 		Tick(e, p);
 		std::cout << "Position : " << p.Position.x() << ", " << p.Position.y() << ", " << p.Position.z() << ", " << p.Position.w() << std::endl;
 	}
+	Canvas c{5, 3};
+	Colour red{ 255, 0, 0 };
+	c.WritePixel(0, 0, red);
+	std::string newString = c.WriteToPPM();
+	//std::cout << newString;
 
+	
 	return 0;
 }

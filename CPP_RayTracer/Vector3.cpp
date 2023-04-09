@@ -1,5 +1,13 @@
 #include "Vector3.h"
 
+Vector3::Vector3(Tuple& tuple)
+	:Tuple(tuple)
+{
+	_x = tuple.x();
+	_y = tuple.y();
+	_z = tuple.z();
+}
+
 Tuple Vector3::PointToTuple()
 {
     return {_x, _y, _z, 1.f};

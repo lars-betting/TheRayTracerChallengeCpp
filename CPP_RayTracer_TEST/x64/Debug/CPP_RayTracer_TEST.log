@@ -1,3 +1,6 @@
 ﻿  pch.cpp
   CPP_RayTracer_TEST.cpp
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Canvas.cpp(33,26): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Canvas.cpp(38,23): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+     Creating library D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.lib and object D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.exp
   CPP_RayTracer_TEST.vcxproj -> D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.dll

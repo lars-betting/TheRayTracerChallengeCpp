@@ -6,6 +6,7 @@ public:
 	
 		Vector3(float x, float y, float z)
 			: _x(x), _y(y), _z(z) {}
+		Vector3(Tuple& tuple);
 
 		Tuple PointToTuple();
 		Tuple VectorToTuple();

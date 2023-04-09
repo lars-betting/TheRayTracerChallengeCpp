@@ -10,4 +10,6 @@
 // add headers that you want to pre-compile here
 #include "../CPP_RayTracer/Tuple.h"
 #include "../CPP_RayTracer/Vector3.h"
+#include "../CPP_RayTracer/Colour.h"
+#include "../CPP_RayTracer/Canvas.h"
 #endif //PCH_H
