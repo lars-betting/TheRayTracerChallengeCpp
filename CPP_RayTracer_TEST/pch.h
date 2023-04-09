@@ -8,5 +8,6 @@
 #define PCH_H
 
 // add headers that you want to pre-compile here
-#include "../CPP_RayTracer/Math.h"
+#include "../CPP_RayTracer/Tuple.h"
+#include "../CPP_RayTracer/Vector3.h"
 #endif //PCH_H

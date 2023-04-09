@@ -1,2 +1,3 @@
-﻿  CPP_RayTracer_TEST.cpp
+﻿  pch.cpp
+  CPP_RayTracer_TEST.cpp
   CPP_RayTracer_TEST.vcxproj -> D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.dll
