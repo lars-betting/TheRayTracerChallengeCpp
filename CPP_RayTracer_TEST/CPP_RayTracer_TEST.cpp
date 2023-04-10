@@ -142,5 +142,67 @@ namespace CPPRayTracerTEST
 			Assert::AreEqual(4.0f, m(1, 1));
 			Assert::AreEqual(0.0f, m(3, 3));
 		}
+		TEST_METHOD(MatrixEqual)
+		{
+			Matrix m(4,4);
+			m(0, 0) = 1.0f;
+			m(0, 1) = 2.0f;
+			m(1, 0) = 3.0f;
+			m(1, 1) = 4.0f;
+			
+			Matrix p(4, 4);
+			p(0, 0) = 1.0f;
+			p(0, 1) = 2.0f;
+			p(1, 0) = 3.0f;
+			p(1, 1) = 4.0f;
+
+			if (m==p)
+			{
+				
+			}
+			else
+			{
+				Assert::Fail();
+			}
+		}
+		TEST_METHOD(MatrixMul)
+		{
+			Matrix r(4, 4);
+			r(0, 0) = 1.0f;
+			r(0, 1) = 2.0f;
+			r(0, 2) = 3.0f;
+			r(0, 3) = 4.0f;
+			r(1, 0) = 2.0f;
+			r(1, 1) = 4.0f;
+			r(1, 2) = 4.0f;
+			r(1, 3) = 2.0f;
+			r(2, 0) = 8.0f;
+			r(2, 1) = 6.0f;
+			r(2, 2) = 4.0f;
+			r(2, 3) = 1.0f;
+			r(3, 0) = 0.0f;
+			r(3, 1) = 0.0f;
+			r(3, 2) = 0.0f;
+			r(3, 3) = 1.0f;
+			
+			Tuple t(1.0f, 2.0f, 3.0f, 1.0f);
+
+			Matrix q = Matrix::MatrixMultiply(r, t);
+
+			Matrix m(4, 1);
+			m(0, 0) = 18.0f;
+			m(1, 0) = 24.0f;
+			m(2, 0) = 33.0f;
+			m(3, 0) = 1.0f;
+			
+			if (q == m)
+			{
+
+			}
+			else
+			{
+				Assert::Fail();
+			}
+		}
 	};
 }

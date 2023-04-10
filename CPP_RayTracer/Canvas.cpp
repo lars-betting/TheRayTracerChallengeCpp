@@ -45,12 +45,12 @@ Colour Canvas::GetPixelAt(int x, int y)
 
 int Canvas::GetWidth() const
 {
-	return _pixel[0].size();
+	return int(_pixel[0].size());
 }
 
 int Canvas::GetHeight() const
 {
-	return _pixel.size();
+	return int(_pixel.size());
 }
 
 std::string Canvas::WriteToPPM()
