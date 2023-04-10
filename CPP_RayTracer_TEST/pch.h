@@ -12,4 +12,5 @@
 #include "../CPP_RayTracer/Vector3.h"
 #include "../CPP_RayTracer/Colour.h"
 #include "../CPP_RayTracer/Canvas.h"
+#include "../CPP_RayTracer/Matrix.h"
 #endif //PCH_H

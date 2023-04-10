@@ -5,6 +5,7 @@
 #include "../CPP_RayTracer/Vector3.cpp"
 #include "../CPP_RayTracer/Colour.cpp"
 #include "../CPP_RayTracer/Canvas.cpp"
+#include "../CPP_RayTracer/Matrix.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace CPPRayTracerTEST
@@ -103,9 +104,9 @@ namespace CPPRayTracerTEST
 			Assert::AreEqual(c.GetWidth(), 10);
 			Assert::AreEqual(c.GetHeight(), 20);
 			
-			for (int i = 0; i < c.GetWidth(); i++)
+			for (int i = 0; i < c.GetHeight(); i++)
 			{
-				for (int j = 0; j < c.GetHeight(); j++)
+				for (int j = 0; j < c.GetWidth(); j++)
 				{
 					Colour t = c.GetPixelAt(i, j);
 					Assert::AreEqual(t.r(), 0.0f);
@@ -125,6 +126,21 @@ namespace CPPRayTracerTEST
 			Assert::AreEqual(t.r(), 1.0f);
 			Assert::AreEqual(t.g(), 0.0f);
 			Assert::AreEqual(t.b(), 0.0f);
+		}
+
+		TEST_METHOD(MatrixMan)
+		{
+			Matrix m(4,4);
+			m(0, 0) = 1.0f;
+			m(0, 1) = 2.0f;
+			m(1, 0) = 3.0f;
+			m(1, 1) = 4.0f;
+			
+			Assert::AreEqual(1.0f, m(0, 0));
+			Assert::AreEqual(2.0f, m(0, 1));
+			Assert::AreEqual(3.0f, m(1, 0));
+			Assert::AreEqual(4.0f, m(1, 1));
+			Assert::AreEqual(0.0f, m(3, 3));
 		}
 	};
 }

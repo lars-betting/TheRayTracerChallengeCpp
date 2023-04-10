@@ -20,7 +20,7 @@ public:
 	
 private:
 	Colour& at(int row, int col);
-	std::vector<std::vector<Colour>> _pixels{};
+	std::vector<std::vector<Colour>> _pixel{};
 	int _width{};
 	int _height{};
 	std::ostringstream _ppm;

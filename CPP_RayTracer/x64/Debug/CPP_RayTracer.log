@@ -1,1 +1,5 @@
-﻿  CPP_RayTracer.vcxproj -> D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer.exe
+﻿  Matrix.cpp
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Matrix.cpp(18,16): error C2512: 'Matrix': no appropriate default constructor available
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Matrix.cpp(18,16): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Matrix.cpp(23,16): error C2512: 'Matrix': no appropriate default constructor available
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Matrix.cpp(23,16): message : No constructor could take the source type, or constructor overload resolution was ambiguous

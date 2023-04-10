@@ -13,10 +13,16 @@ public:
 
 public:
 
-	//Getters
-	float r();
-	float g();
-	float b();
+	//Getters and Setters
+	float r() const { return _r; }
+	void set_r(float r) { _r = r; }
+
+	float g() const { return _g; }
+	void set_g(float g) { _g = g; }
+
+	float b() const { return _b; }
+	void set_b(float b) { _b = b; }
+
 	float alpha();
 
 	Colour Hadamard( const Colour& other) const;

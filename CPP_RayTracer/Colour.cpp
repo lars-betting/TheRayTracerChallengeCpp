@@ -9,21 +9,6 @@ Colour::Colour(const Tuple& tuple)
     _alpha = tuple.w();
 }
 
-float Colour::r()
-{
-    return _r;
-}
-
-float Colour::g()
-{
-    return _g;
-}
-
-float Colour::b()
-{
-    return _b;
-}
-
 float Colour::alpha()
 {
     return _alpha;
