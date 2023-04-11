@@ -128,14 +128,19 @@ namespace CPPRayTracerTEST
 			Assert::AreEqual(t.b(), 0.0f);
 		}
 
+		
+	};
+
+	TEST_CLASS(Matrixes)
+	{
 		TEST_METHOD(MatrixMan)
 		{
-			Matrix m(4,4);
+			Matrix m(4, 4);
 			m(0, 0) = 1.0f;
 			m(0, 1) = 2.0f;
 			m(1, 0) = 3.0f;
 			m(1, 1) = 4.0f;
-			
+
 			Assert::AreEqual(1.0f, m(0, 0));
 			Assert::AreEqual(2.0f, m(0, 1));
 			Assert::AreEqual(3.0f, m(1, 0));
@@ -144,21 +149,21 @@ namespace CPPRayTracerTEST
 		}
 		TEST_METHOD(MatrixEqual)
 		{
-			Matrix m(4,4);
+			Matrix m(4, 4);
 			m(0, 0) = 1.0f;
 			m(0, 1) = 2.0f;
 			m(1, 0) = 3.0f;
 			m(1, 1) = 4.0f;
-			
+
 			Matrix p(4, 4);
 			p(0, 0) = 1.0f;
 			p(0, 1) = 2.0f;
 			p(1, 0) = 3.0f;
 			p(1, 1) = 4.0f;
 
-			if (m==p)
+			if (m == p)
 			{
-				
+
 			}
 			else
 			{
@@ -184,7 +189,7 @@ namespace CPPRayTracerTEST
 			r(3, 1) = 0.0f;
 			r(3, 2) = 0.0f;
 			r(3, 3) = 1.0f;
-			
+
 			Tuple t(1.0f, 2.0f, 3.0f, 1.0f);
 
 			Matrix q = Matrix::MatrixMultiply(r, t);
@@ -194,7 +199,7 @@ namespace CPPRayTracerTEST
 			m(1, 0) = 24.0f;
 			m(2, 0) = 33.0f;
 			m(3, 0) = 1.0f;
-			
+
 			if (q == m)
 			{
 
@@ -204,5 +209,39 @@ namespace CPPRayTracerTEST
 				Assert::Fail();
 			}
 		}
+
+		TEST_METHOD(MatrixIdentitya)
+		{
+			Matrix r(4, 4);
+			r(0, 0) = 1.0f;
+			r(0, 1) = 2.0f;
+			r(0, 2) = 3.0f;
+			r(0, 3) = 4.0f;
+			r(1, 0) = 2.0f;
+			r(1, 1) = 4.0f;
+			r(1, 2) = 4.0f;
+			r(1, 3) = 2.0f;
+			r(2, 0) = 8.0f;
+			r(2, 1) = 6.0f;
+			r(2, 2) = 4.0f;
+			r(2, 3) = 1.0f;
+			r(3, 0) = 0.0f;
+			r(3, 1) = 0.0f;
+			r(3, 2) = 0.0f;
+			r(3, 3) = 1.0f;
+
+			Matrix l = Matrix::identityMatrix;
+			Matrix w = Matrix::MatrixMultiply(r, l);
+			if (r == w)
+			{
+
+			}
+			else
+			{
+				Assert::Fail();
+			}
+
+		}
+
 	};
 }

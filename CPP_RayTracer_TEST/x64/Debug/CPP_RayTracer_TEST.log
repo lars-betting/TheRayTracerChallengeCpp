@@ -1,3 +1,5 @@
-﻿  CPP_RayTracer_TEST.cpp
+﻿  pch.cpp
+  CPP_RayTracer_TEST.cpp
+D:\SDL\CPP_RayTracer\CPP_RayTracer\Matrix.cpp(98): warning C4172: returning address of local variable or temporary: result
      Creating library D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.lib and object D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.exp
   CPP_RayTracer_TEST.vcxproj -> D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer_TEST.dll
