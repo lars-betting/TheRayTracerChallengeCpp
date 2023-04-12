@@ -14,16 +14,26 @@ public:
 	static Matrix MatrixMultiply(Matrix& matrix, Matrix& other);
 	void resetMatrix(int newRow, int newCol);
 	Matrix Transpose();
-	
-	float& Determinant2x2();
-	Matrix SubMatrix(Matrix& other, int row, int col);
+	float& Determinant();
+	Matrix Inverse();
+
+	//public for debug purposes
+	float& at(int row, int col);
+
 
 
 	// Public variables
 	static Matrix identityMatrix;
 private:
 	static Matrix createIdentityMatrix();
-	float& at(int row, int col);
+
+	//TODO: MAKE DETERMINANT, MINOR AND COFACTOR FUNCTIONS FLEXIBLE
+	float& Determinant2x2();
+	static float& Minor3x3(Matrix& matrix, int row, int col);
+	float& Cofactor4x4(Matrix& matrix, int row, int col);
+	static float& Cofactor3x3(Matrix& matrix, int row, int col);
+	Matrix SubMatrix(Matrix& other, int row, int col);
+
 
 	int _row{};
 	int _col{};

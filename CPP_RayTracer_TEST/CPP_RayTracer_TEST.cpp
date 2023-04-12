@@ -147,6 +147,38 @@ namespace CPPRayTracerTEST
 			Assert::AreEqual(4.0f, m(1, 1));
 			Assert::AreEqual(0.0f, m(3, 3));
 		}
+
+		TEST_METHOD(submatrixes)
+		{
+			Matrix A(3, 3);
+			A(0, 0) = 1;
+			A(0, 1) = 5;
+			A(0, 2) = 0;
+			A(1, 0) = -3;
+			A(1, 1) = 2;
+			A(1, 2) = 7;
+			A(2, 0) = 0;
+			A(2, 1) = 6;
+			A(2, 2) = -3;
+
+			Matrix B(2, 2);
+			B.SubMatrix(A, 0, 2);
+
+			Matrix C(2, 2);
+			C(0, 0) = -3;
+			C(0, 1) = 2;
+			C(1, 0) = 0;
+			C(1, 1) = 6;
+
+			if (B == C)
+			{
+
+			}
+			else
+			{
+				Assert::Fail();
+			}
+		}
 		TEST_METHOD(MatrixEqual)
 		{
 			Matrix m(4, 4);
