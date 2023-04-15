@@ -1,6 +1,2 @@
 ﻿  main.cpp
-Canvas.obj : warning LNK4099: PDB 'vc143.pdb' was not found with 'Canvas.obj' or at 'D:\SDL\CPP_RayTracer\x64\Debug\vc143.pdb'; linking object as if no debug info
-Colour.obj : warning LNK4099: PDB 'vc143.pdb' was not found with 'Colour.obj' or at 'D:\SDL\CPP_RayTracer\x64\Debug\vc143.pdb'; linking object as if no debug info
-Tuple.obj : warning LNK4099: PDB 'vc143.pdb' was not found with 'Tuple.obj' or at 'D:\SDL\CPP_RayTracer\x64\Debug\vc143.pdb'; linking object as if no debug info
-Vector3.obj : warning LNK4099: PDB 'vc143.pdb' was not found with 'Vector3.obj' or at 'D:\SDL\CPP_RayTracer\x64\Debug\vc143.pdb'; linking object as if no debug info
   CPP_RayTracer.vcxproj -> D:\SDL\CPP_RayTracer\x64\Debug\CPP_RayTracer.exe

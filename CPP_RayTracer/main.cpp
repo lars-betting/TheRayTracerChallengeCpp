@@ -3,7 +3,7 @@
 #include "Canvas.h"
 #include "Tuple.h"
 #include "Matrix.h"
-
+#include "Ray.h"
 float PI = 3.14159265f;
 struct Projectile
 {
@@ -47,19 +47,20 @@ int main()
 
 
 	//std::cout << newString;
-	Tuple point(1, 0, 1, 1);
-	Matrix A = Matrix::RotationMatrixX(PI/2);
-	Matrix B = Matrix::ScalingMatrix(5, 5, 5);
-	Matrix C = Matrix::TranslationMatrix(10, 5, 7);
+	//Tuple point(1, 0, 1, 1);
+	//Matrix A = Matrix::RotationMatrixX(PI/2);
+	//Matrix B = Matrix::ScalingMatrix(5, 5, 5);
+	//Matrix C = Matrix::TranslationMatrix(10, 5, 7);
 
-	Matrix T = C * B * A * point;
-	std::cout << T.at(0,0) << std::endl;
-	std::cout << T.at(1,0) << std::endl;
-	std::cout << T.at(2,0) << std::endl;
+	//Matrix T = C * B * A * point;
+	//std::cout << T.at(0,0) << std::endl;
+	//std::cout << T.at(1,0) << std::endl;
+	//std::cout << T.at(2,0) << std::endl;
+	//
+	Tuple origin(2,3,4,1);
+	Tuple direction(1, 0, 0, 0);
+	Ray ray(origin, direction);
 	
-
-
-
 	
 	return 0;
 }
