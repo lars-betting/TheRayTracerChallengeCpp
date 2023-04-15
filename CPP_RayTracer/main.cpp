@@ -3,6 +3,8 @@
 #include "Canvas.h"
 #include "Tuple.h"
 #include "Matrix.h"
+
+float PI = 3.14159265f;
 struct Projectile
 {
 	Tuple Position{};
@@ -45,66 +47,15 @@ int main()
 
 
 	//std::cout << newString;
-	Matrix A(4, 4);
-	A(0, 0) = 3;
-	A(0, 1) = -9;
-	A(0, 2) = 7;
-	A(0, 3) = 3;
-	A(1, 0) = 3;
-	A(1, 1) = -8;
-	A(1, 2) = 2;
-	A(1, 3) = -9;
-	A(2, 0) = -4;
-	A(2, 1) = 4;
-	A(2, 2) = 4;
-	A(2, 3) = 1;
-	A(3, 0) = -6;
-	A(3, 1) = 5;
-	A(3, 2) = -1;
-	A(3, 3) = 1;
+	Tuple point(1, 0, 1, 1);
+	Matrix A = Matrix::RotationMatrixX(PI/2);
+	Matrix B = Matrix::ScalingMatrix(5, 5, 5);
+	Matrix C = Matrix::TranslationMatrix(10, 5, 7);
 
-	Matrix B(4, 4);
-	B(0, 0) = 8;
-	B(0, 1) = 2;
-	B(0, 2) = 2;
-	B(0, 3) = 2;
-	B(1, 0) = 3;
-	B(1, 1) = -1;
-	B(1, 2) = 7;
-	B(1, 3) = 0;
-	B(2, 0) = 7;
-	B(2, 1) = 0;
-	B(2, 2) = 5;
-	B(2, 3) = 4;
-	B(3, 0) = 6;
-	B(3, 1) = -2;
-	B(3, 2) = 0;
-	B(3, 3) = 5;
-	Matrix C(4, 4);
-	C = Matrix::MatrixMultiply(A, B);
-
-	Matrix D(4, 4);
-	Matrix E(4, 4);
-	E = B.Inverse();
-	D = Matrix::MatrixMultiply(C, E);
-	
-	if (D == A)
-	{
-		std::cout << "that actually worked" << std::endl;
-	}
-	else
-	{
-		std::cout << "nope" << std::endl;
-	}
-	
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << D.at(i, j) << std::endl;
-		}
-	}
-	//std::cout << x << std::endl;
+	Matrix T = C * B * A * point;
+	std::cout << T.at(0,0) << std::endl;
+	std::cout << T.at(1,0) << std::endl;
+	std::cout << T.at(2,0) << std::endl;
 	
 
 

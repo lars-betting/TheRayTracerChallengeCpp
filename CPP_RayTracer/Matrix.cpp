@@ -4,7 +4,7 @@
 Matrix::Matrix(int row, int col)
 	:_row(row), _col(col), _matrixData(row* col, 0.0f) // initializes all element in the vector to 0;
 {
-	std::cout << "matrix created" << std::endl;
+	
 }
 
 
@@ -24,6 +24,42 @@ bool Matrix::operator==(Matrix& other)
 	return true;
 }
 
+Matrix Matrix::operator*(Matrix& other)
+{
+	Matrix m(this->_row, other._col);
+	for (int i = 0; i < m._row; i++)
+	{
+		for (int j = 0; j < m._col; j++)
+		{
+			float& current = m.at(i, j);
+			current = 0.0f;
+			for (int k = 0; k < this->_col; k++)
+			{
+				current += this->at(i, k) * other.at(k, j);
+			}
+		}
+	}
+
+	return m;
+}
+
+Matrix Matrix::operator*(Tuple& tuple)
+{
+	Matrix m(4, 1);
+	for (int i = 0; i < 4; i++)
+	{
+		int j = 0;
+		float& current = m.at(i, j);
+		current = 0.0f;
+
+		current += this->at(i, 0) * tuple.x();
+		current += this->at(i, 1) * tuple.y();
+		current += this->at(i, 2) * tuple.z();
+		current += this->at(i, 3) * tuple.w();
+	}
+	return m;
+}
+
 Matrix Matrix::MatrixMultiply(Matrix& matrix, Tuple& tuple)
 {
 	Matrix m(4, 1);
@@ -40,6 +76,8 @@ Matrix Matrix::MatrixMultiply(Matrix& matrix, Tuple& tuple)
 	}
 	return m;
 }
+
+
 
 Matrix Matrix::MatrixMultiply(Matrix& matrix, Matrix& other)
 {
@@ -150,6 +188,11 @@ Matrix Matrix::Inverse()
 	return temp;
 }
 
+Tuple Matrix::ToTuple(Matrix& matrix)
+{
+	return Tuple(matrix.at(0, 0), matrix.at(1, 0), matrix.at(2,0), matrix.at(3,0));
+}
+
 float& Matrix::Minor3x3(Matrix& matrix, int row, int col)
 {
 	Matrix temp(matrix._row, matrix._col);
@@ -234,6 +277,7 @@ float& Matrix::at(int row, int col)
 	return _matrixData[row * _col + col];
 }
 
+
 //Matrix Matrix::identityMatrix(4, 4); // Identify  the static matrix
 Matrix Matrix::createIdentityMatrix()
 {
@@ -245,3 +289,93 @@ Matrix Matrix::createIdentityMatrix()
 	return identity;
 }
 Matrix Matrix::identityMatrix = createIdentityMatrix() ;
+
+Matrix Matrix::TranslationMatrix(float x, float y, float z)
+{
+	Matrix translation(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		translation(i, i) = 1.0f;
+	}
+	translation(0, 3) = x;
+	translation(1, 3) = y;
+	translation(2, 3) = z;
+	
+	return translation;
+}
+
+Matrix Matrix::ScalingMatrix(float x, float y, float z)
+{
+	Matrix scaling(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		scaling(i, i) = 1.0f;
+	}
+	scaling (0, 0) = x;
+	scaling(1, 1) = y;
+	scaling(2, 2) = z;
+
+	return scaling;
+}
+
+Matrix Matrix::RotationMatrixX(float r)
+{
+	Matrix rotation(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		rotation(i, i) = 1.0f;
+	}
+	rotation(1, 1) = cos(r);
+	rotation(1, 2) = -sin(r);
+	rotation(2, 1) = sin(r);
+	rotation(2, 2) = cos(r);
+
+	return rotation;
+}
+
+Matrix Matrix::RotationMatrixY(float r)
+{
+	Matrix rotation(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		rotation(i, i) = 1.0f;
+	}
+	rotation(0, 0) = cos(r);
+	rotation(0, 2) = sin(r);
+	rotation(2, 0) = -sin(r);
+	rotation(2, 2) = cos(r);
+
+	return rotation;
+}
+
+Matrix Matrix::RotationMatrixZ(float r)
+{
+	Matrix rotation(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		rotation(i, i) = 1.0f;
+	}
+	rotation(0, 0) = cos(r);
+	rotation(0, 1) = -sin(r);
+	rotation(1, 0) = sin(r);
+	rotation(1, 1) = cos(r);
+
+	return rotation;
+}
+
+Matrix Matrix::ShearingMatrix(float xY, float xZ, float yX, float yZ, float zX, float zY)
+{
+	Matrix sheering(4, 4);
+	for (int i = 0; i < 4; i++)
+	{
+		sheering(i, i) = 1.0f;
+	}
+	sheering(0, 1) = xY;
+	sheering(0, 2) = xZ;
+	sheering(1, 0) = yX;
+	sheering(1, 2) = yZ;
+	sheering(2, 0) = zX;
+	sheering(2, 1) = zY;
+
+	return sheering;
+}
