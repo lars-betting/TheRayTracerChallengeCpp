@@ -1,6 +1,5 @@
 #pragma once
 #include "Tuple.h"
-#include <string>
 class Ray 
 {
 public:
@@ -8,17 +7,10 @@ public:
 	
 	Tuple GetPosition(float t);
 
+
+	Tuple GetOrigin() { return _origin; }
+	Tuple GetDirection() { return _direction; }
 private:
 	Tuple _origin;
 	Tuple _direction;
-};
-
-class Sphere
-{
-public:
-	Sphere(float radius, std::string id);
-
-private:
-	float _radius;
-	std::string _id;
 };

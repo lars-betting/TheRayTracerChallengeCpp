@@ -10,8 +10,4 @@ Tuple Ray::GetPosition(float t)
 	return _origin + (_direction * t);
 }
 
-Sphere::Sphere(float radius, std::string id)
-	:_radius(radius), _id(id)
-{
 
-}
